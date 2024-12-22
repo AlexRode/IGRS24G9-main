@@ -65,7 +65,7 @@ class kamailio:
 
             if KSR.pv.get("$ru") == "sip:conferencia@acme.pt":
                 # Redirect to conference room
-                KSR.info("A ir para a sala de conferências! \n")
+                KSR.info("A ir para a sala de conferências \n")
                 self.userStatus[KSR.pv.get("$fu")] = "InConference"
                 KSR.info("Estado de " + KSR.pv.get("$fu") + " alterado para InConference \n")
                 KSR.pv.sets("$ru", "sip:conferencia@127.0.0.1:5090")
@@ -89,9 +89,9 @@ class kamailio:
                 KSR.tm.t_relay()
                 return 1
 
-            if self.userStatus.get(KSR.pv.get("$tu")) == "inConference":
+            if self.userStatus.get(KSR.pv.get("$tu")) == "InConference":
                 # Redirect to conference announcement server if the destination is in conference
-                KSR.info("Encaminhado para o servidor de anúncios! \n")
+                KSR.info("Encaminhado para o servidor de anúncios \n")
                 KSR.pv.sets("$ru", "sip:inconference@127.0.0.1:5080")
                 KSR.rr.record_route()
                 KSR.tm.t_relay()

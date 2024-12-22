@@ -1,0 +1,12 @@
+set (early_announce_SRCS
+EarlyAnnounce.cpp
+)
+
+IF(MYSQLCPPCONN_FOUND)
+	INCLUDE_DIRECTORIES(${MYSQLCPPCONN_INCLUDE_DIR})
+	ADD_DEFINITIONS(-DWITH_MYSQL)
+	SET(sems_module_libs ${MYSQLCPPCONN_LIBRARIES})
+ENDIF(MYSQLCPPCONN_FOUND)
+
+SET(sems_module_name early_announce)
+INCLUDE(${CMAKE_SOURCE_DIR}/cmake/module.rules.txt)

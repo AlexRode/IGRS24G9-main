@@ -1,0 +1,2 @@
+#!/bin/sh
+sems-stats -c "DI dsm reloadDSMs"
